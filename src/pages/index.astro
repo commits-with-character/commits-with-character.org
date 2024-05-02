@@ -1,0 +1,327 @@
+---
+import Rule from '../components/rule.astro'
+import Section from '../components/section.astro'
+import A from '../components/a.astro'
+import Code from '../components/code.astro'
+import dedent from 'dedent'
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/logo.svg" sizes="any" type="image/svg+xml" />
+    <title>Commits With Character</title>
+  </head>
+  <body class="bg-amber-50 pb-16 pt-4 text-amber-950 sm:text-lg">
+    <div class="border-y-8 border-amber-950 bg-white py-16">
+      <img alt="" src="/logo.svg" class="mx-auto size-32" />
+      <h1
+        class="mt-8 px-4 text-center font-serif text-4xl font-bold tracking-tight sm:text-5xl"
+      >
+        Commits With Character
+      </h1>
+
+      <div
+        class="mx-auto mt-4 flex max-w-52 items-center justify-between font-mono text-xs font-bold opacity-50 sm:max-w-lg"
+        aria-hidden="true"
+      >
+        <div>
+          ! Remove <span class="hidden sm:inline-block">deprecated item</span>
+        </div>
+        <div>
+          ^ Add <span class="hidden sm:inline-block">a new feature</span>
+        </div>
+        <div>
+          ~ Fix <span class="hidden sm:inline-block">a pesky bug</span>
+        </div>
+      </div>
+
+      <p
+        class="mx-auto mt-4 w-full max-w-2xl shrink-0 text-balance px-4 text-center font-serif text-lg font-semibold text-amber-900"
+      >
+        A simple convention for conveying semantic versioning to both humans and
+        automated systems via commit messages
+      </p>
+    </div>
+
+    <div class="container py-16">
+      <div class="grid gap-8 lg:grid-cols-2">
+        <Section title="General commit guidelines">
+          {
+            [
+              {
+                title: 'Capitalise the subject',
+                description:
+                  'The subject line should be capitalised, as it is treated as a sentence. This helps maintain a consistent style throughout the commit history.',
+                icon: 'caps',
+              },
+              {
+                title: 'Do not end the subject line with a fullstop/period',
+                description:
+                  'Subject lines benefit from brevity; trailing punctuation is superfluous, especially when striving to maintain a concise 50-character limit.',
+                icon: 'cursor',
+              },
+              {
+                title: 'Use the imperative mood in the subject',
+                description:
+                  'The subject line should be written in the imperative mood, as if you\'re giving a command. For example, "Fix bug" instead of "Fixed bug" or "Fixes bug"',
+                icon: 'shout',
+              },
+              {
+                title: 'Keep the subject to 50 characters or less if possible',
+                description:
+                  'The subject line should be concise and to the point, as it is often used in various Git tools and interfaces. Keeping it under 50 characters ensures readability and clarity.',
+                icon: 'ruler',
+              },
+              {
+                title: 'Separate subject from body with a blank line',
+                description:
+                  'The first line of the commit message is the subject, which should be a short, descriptive summary of the changes. The body, which provides more detailed information, should be separated from the subject by a blank line.',
+                icon: 'lines',
+              },
+              {
+                title: 'Wrap the body at 72 characters',
+                description:
+                  'The body of the commit message should be wrapped at 72 characters to improve readability and make it easier to view the commit history in various tools.',
+                icon: 'wrap',
+              },
+              {
+                title:
+                  'Use the body to explain how it worked before, what has changed, and how it works now',
+                description:
+                  'The body of the commit message should focus on explaining the changes made and the reasoning behind them, rather than describing the implementation details.',
+                icon: 'info',
+              },
+            ].map((rule) => (
+              <Rule
+                title={rule.title}
+                description={rule.description}
+                icon={rule.icon}
+              />
+            ))
+          }
+        </Section>
+
+        <div class="grid gap-8">
+          <Section title="Commits With Character">
+            <Rule
+              title="Prefix consumer-affecting commits with a semantic character"
+              icon="exclamation"
+            >
+              <p>
+                Use a character prefix, followed by a space, to inform your
+                consumers about the intent of the work.
+              </p>
+              <ul class="mt-4 space-y-4">
+                <li class="flex gap-4">
+                  <div class="shrink-0">
+                    <Code>!</Code>
+                  </div>
+                  <div>
+                    An incompatible change has been made to your API; a breaking
+                    change (<A href="http://semver.org/#summary">MAJOR</A>).
+                  </div>
+                </li>
+                <li class="flex gap-4">
+                  <div class="shrink-0">
+                    <Code>^</Code>
+                  </div>
+                  <div>
+                    Backward compatible functionality added to your API; a new
+                    feature (<A href="http://semver.org/#summary">MINOR</A>).
+                  </div>
+                </li>
+                <li class="flex gap-4">
+                  <div class="shrink-0">
+                    <Code>~</Code>
+                  </div>
+                  <div>
+                    Backward compatible bug fix made to your API, or a code
+                    change that improves performance; any non-feature that
+                    requires a release (<A href="http://semver.org/#summary"
+                      >PATCH</A
+                    >).
+                  </div>
+                </li>
+              </ul>
+            </Rule>
+
+            <Rule
+              title="Use a scope to provide additional contextual information"
+              description="A scope is a noun describing a section of the codebase the commit relates to, and is placed after the character, if provided, but before the subject, and is followed by a colon and a space."
+              icon="magnify"
+            />
+          </Section>
+
+          <Section title="Examples">
+            <div class="space-y-4">
+              <div>
+                <h4 class="mb-1 text-xs font-bold text-amber-800">
+                  Non-feature improvement
+                </h4>
+                <pre
+                  class="overflow-x-auto border border-amber-950 bg-amber-50 p-2 text-sm">~ Fix typo in response from parser</pre>
+              </div>
+
+              <div>
+                <h4 class="mb-1 text-xs font-bold text-amber-800">
+                  Scoped change
+                </h4>
+                <pre
+                  class="overflow-x-auto border border-amber-950 bg-amber-50 p-2 text-sm">acme-tool: Remove superfluous semicolons</pre>
+              </div>
+
+              <div>
+                <h4 class="mb-1 text-xs font-bold text-amber-800">
+                  Scoped breaking change
+                </h4>
+                <pre
+                  class="overflow-x-auto border border-amber-950 bg-amber-50 p-2 text-sm">! faux-util: Delete deprecated options</pre>
+              </div>
+
+              <div>
+                <h4 class="mb-1 text-xs font-bold text-amber-800">
+                  Non-consumer affecting change
+                </h4>
+                <pre
+                  class="overflow-x-auto border border-amber-950 bg-amber-50 p-2 text-sm">Fix 404 credit links in CONTRIBUTING</pre>
+              </div>
+
+              <div>
+                <h4 class="mb-1 text-xs font-bold text-amber-800">
+                  New feature with body
+                </h4>
+                <pre
+                  class="overflow-x-auto border border-amber-950 bg-amber-50 p-2 text-sm">{dedent`^ Add automated data validation for user inputs
+
+                  Previously, user inputs underwent manual validation, leading to
+                  occasional errors and data inconsistencies. Users had to carefully
+                  review inputs before submission, which was time-consuming and prone to
+                  oversight.
+
+                  Now, the system checks inputs against predefined criteria in real-time,
+                  flagging discrepancies and providing error messages. This ensures data
+                  integrity and reduces errors, improving overall system reliability.`}</pre>
+              </div>
+            </div>
+          </Section>
+        </div>
+      </div>
+
+      <div class="mx-auto mt-8 max-w-3xl">
+        <Section title="About">
+          <div class="space-y-4">
+            <p>
+              The <strong>Commits With Character</strong> specification draws inspiration
+              from <A href="https://www.conventionalcommits.org"
+                >Conventional Commits</A
+              >, in that it also serves the purpose of adding semantic
+              significance to a commit message. However, it distinguishes itself
+              by endorsing and expanding upon the commit guidelines outlined in
+              the original <A
+                href="https://www.git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines"
+                >Git Book</A
+              >, thereby steering clear of commit categorisation.
+            </p>
+            <p>
+              If you know <A href="https://semver.org/">Semantic Versioning</A>,
+              you know Commits With Character.
+            </p>
+            <p>
+              This simple addition is for projects that do not need the full
+              power of <A href="https://github.com/changesets/changesets"
+                >Changesets</A
+              > (which is highly recommended for complex team projects), are happy
+              to drive a changelog and release from commit messages, but would rather
+              not have the overhead of Conventional Commits.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold">Tools</h3>
+            <ul class="mt-4 list-outside list-disc">
+              <li>
+                <div>
+                  <A
+                    href="https://github.com/commits-with-character/conventional-changelog-preset"
+                    >@commits-with-character/conventional-changelog-preset</A
+                  >
+                </div><div class="text-base opacity-80">
+                  An adapter you can use with tools such as release-it's <A
+                    href="https://github.com/release-it/conventional-changelog"
+                    >Conventional Changelog plugin</A
+                  > to provide the recommended bump to <A
+                    href="https://github.com/release-it/release-it"
+                    >release-it</A
+                  >, and update the changelog file.
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold">
+              "But I love Conventional Commits <em>and</em> Commits With Character!"
+            </h3>
+            <p class="mt-4">
+              Whilst it is not recommended, if you really feel the need to
+              categorise every commit with a prefix, here's some suggestions you
+              can use for all non-consumer affecting commits.
+            </p>
+            <table class="mt-4">
+              <thead class="border-b border-amber-950">
+                <tr>
+                  <th class="p-4">Prefix</th>
+                  <th class="p-4 text-left">Description</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-amber-950">
+                <tr>
+                  <td class="p-4"><Code>=</Code></td>
+                  <td class="p-4"
+                    >A source code change that doesn’t fix a bug, doesn’t add a
+                    feature, doesn’t change performance, or doesn't change the
+                    meaning of the code (comments, white-space, formatting,
+                    missing semi-colons, etc).</td
+                  >
+                </tr>
+                <tr>
+                  <td class="p-4"><Code>?</Code></td>
+                  <td class="p-4"
+                    >Add missing tests or correct existing tests.</td
+                  >
+                </tr>
+                <tr>
+                  <td class="p-4"><Code>%</Code></td>
+                  <td class="p-4">Documentation only changes.</td>
+                </tr>
+                <tr>
+                  <td class="p-4"><Code>$</Code></td>
+                  <td class="p-4"
+                    >Changes that affect the build system or external
+                    dependencies (development dependencies), or changes to CI
+                    configuration files and scripts. Can be used for general
+                    project maintenance tasks.</td
+                  >
+                </tr>
+                <tr>
+                  <td class="p-4"><Code>&gt;</Code></td>
+                  <td class="p-4">Release and merge commits.</td>
+                </tr>
+                <tr>
+                  <td class="p-4"><Code>&lt;</Code></td>
+                  <td class="p-4">Revert commits.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Section>
+      </div>
+
+      <div class="mt-8 text-center">
+        <A href="https://github.com/commits-with-character"
+          >github.com/commits-with-character</A
+        >
+      </div>
+    </div>
+  </body>
+</html>

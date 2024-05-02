@@ -1,0 +1,18 @@
+---
+import { kebabCase } from 'lodash-es'
+
+const { title } = Astro.props
+---
+
+<section class="flex flex-col overflow-hidden" id={kebabCase(title)}>
+  <h2
+    class="shrink-0 px-8 text-center font-serif text-xl tracking-tight text-amber-950 sm:text-2xl"
+  >
+    {title}
+  </h2>
+  <div
+    class="mt-4 grow space-y-12 border border-amber-950 bg-white px-6 py-12 sm:px-8 md:space-y-16"
+  >
+    <slot />
+  </div>
+</section>

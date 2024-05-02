@@ -1,2 +1,1 @@
-# commits-with-character.org
-Website and specification
+[commits-with-character.org](commits-with-character.org)
