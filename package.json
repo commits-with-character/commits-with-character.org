@@ -6,6 +6,7 @@
     "astro": "astro",
     "build": "astro check && astro build",
     "dev": "astro dev",
+    "lint": "eslint .",
     "preview": "astro preview",
     "start": "astro dev"
   },
@@ -14,9 +15,11 @@
     "@astrojs/tailwind": "^5.1.0",
     "@tailwindcss/typography": "^0.5.14",
     "@types/lodash-es": "^4.17.12",
+    "@will-stone/eslint-config": "^11.0.1",
     "@will-stone/prettier-config": "^8.0.1",
     "astro": "^4.13.3",
     "dedent": "^1.5.3",
+    "eslint": "^9.9.0",
     "lodash-es": "^4.17.21",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
@@ -24,5 +27,8 @@
     "prettier-plugin-tailwindcss": "^0.6.6",
     "tailwindcss": "^3.4.9",
     "typescript": "^5.5.4"
+  },
+  "overrides": {
+    "eslint": "^9.9.0"
   }
 }

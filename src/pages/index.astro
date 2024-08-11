@@ -1,9 +1,10 @@
 ---
-import Rule from '../components/rule.astro'
-import Section from '../components/section.astro'
+import dedent from 'dedent'
+
 import A from '../components/a.astro'
 import Code from '../components/code.astro'
-import dedent from 'dedent'
+import Rule from '../components/rule.astro'
+import Section from '../components/section.astro'
 ---
 
 <html lang="en">
@@ -56,47 +57,47 @@ import dedent from 'dedent'
           {
             [
               {
-                title: 'Capitalise the subject',
                 description:
                   'The subject line should be capitalised, as it is treated as a sentence. This helps maintain a consistent style throughout the commit history.',
                 icon: 'caps',
+                title: 'Capitalise the subject',
               },
               {
-                title: 'Do not end the subject line with a fullstop/period',
                 description:
                   'Subject lines benefit from brevity; trailing punctuation is superfluous, especially when striving to maintain a concise 50-character limit.',
                 icon: 'cursor',
+                title: 'Do not end the subject line with a fullstop/period',
               },
               {
-                title: 'Use the imperative mood in the subject',
                 description:
                   'The subject line should be written in the imperative mood, as if you\'re giving a command. For example, "Fix bug" instead of "Fixed bug" or "Fixes bug"',
                 icon: 'shout',
+                title: 'Use the imperative mood in the subject',
               },
               {
-                title: 'Keep the subject to 50 characters or less if possible',
                 description:
                   'The subject line should be concise and to the point, as it is often used in various Git tools and interfaces. Keeping it under 50 characters ensures readability and clarity.',
                 icon: 'ruler',
+                title: 'Keep the subject to 50 characters or less if possible',
               },
               {
-                title: 'Separate subject from body with a blank line',
                 description:
                   'The first line of the commit message is the subject, which should be a short, descriptive summary of the changes. The body, which provides more detailed information, should be separated from the subject by a blank line.',
                 icon: 'lines',
+                title: 'Separate subject from body with a blank line',
               },
               {
-                title: 'Wrap the body at 72 characters',
                 description:
                   'The body of the commit message should be wrapped at 72 characters to improve readability and make it easier to view the commit history in various tools.',
                 icon: 'wrap',
+                title: 'Wrap the body at 72 characters',
               },
               {
-                title:
-                  'Use the body to explain how it worked before, what has changed, and how it works now',
                 description:
                   'The body of the commit message should focus on explaining the changes made and the reasoning behind them, rather than describing the implementation details.',
                 icon: 'info',
+                title:
+                  'Use the body to explain how it worked before, what has changed, and how it works now',
               },
             ].map((rule) => (
               <Rule
@@ -198,16 +199,18 @@ import dedent from 'dedent'
                   New feature with body
                 </h4>
                 <pre
-                  class="overflow-x-auto border border-amber-950 bg-amber-50 p-2 text-sm">{dedent`^ Add automated data validation for user inputs
+                  class="overflow-x-auto border border-amber-950 bg-amber-50 p-2 text-sm">{dedent`
+                    ^ Add automated data validation for user inputs
 
-                  Previously, user inputs underwent manual validation, leading to
-                  occasional errors and data inconsistencies. Users had to carefully
-                  review inputs before submission, which was time-consuming and prone to
-                  oversight.
+                      Previously, user inputs underwent manual validation, leading to
+                      occasional errors and data inconsistencies. Users had to carefully
+                      review inputs before submission, which was time-consuming and prone to
+                      oversight.
 
-                  Now, the system checks inputs against predefined criteria in real-time,
-                  flagging discrepancies and providing error messages. This ensures data
-                  integrity and reduces errors, improving overall system reliability.`}</pre>
+                      Now, the system checks inputs against predefined criteria in real-time,
+                      flagging discrepancies and providing error messages. This ensures data
+                      integrity and reduces errors, improving overall system reliability.
+                  `}</pre>
               </div>
             </div>
           </Section>
