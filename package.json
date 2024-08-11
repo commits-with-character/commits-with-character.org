@@ -14,15 +14,15 @@
     "@astrojs/tailwind": "^5.1.0",
     "@tailwindcss/typography": "^0.5.13",
     "@types/lodash-es": "^4.17.12",
-    "@will-stone/prettier-config": "^8.0.0",
-    "astro": "^4.8.2",
+    "@will-stone/prettier-config": "^8.0.1",
+    "astro": "^4.13.3",
     "dedent": "^1.5.3",
     "lodash-es": "^4.17.21",
-    "prettier": "^3.2.5",
+    "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.13.0",
-    "prettier-plugin-packagejson": "^2.5.0",
+    "prettier-plugin-packagejson": "^2.5.1",
     "prettier-plugin-tailwindcss": "^0.5.14",
-    "tailwindcss": "^3.4.3",
-    "typescript": "^5.4.5"
+    "tailwindcss": "^3.4.9",
+    "typescript": "^5.5.4"
   }
 }
