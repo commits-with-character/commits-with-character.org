@@ -172,18 +172,29 @@ import Section from '../components/section.astro'
 
               <div>
                 <h4 class="mb-1 text-xs font-bold text-amber-800">
-                  Scoped change
-                </h4>
-                <pre
-                  class="overflow-x-auto border border-amber-950 bg-amber-50 p-2 text-sm">acme-tool: Remove superfluous semicolons</pre>
-              </div>
-
-              <div>
-                <h4 class="mb-1 text-xs font-bold text-amber-800">
                   Scoped breaking change
                 </h4>
                 <pre
                   class="overflow-x-auto border border-amber-950 bg-amber-50 p-2 text-sm">! faux-util: Delete deprecated options</pre>
+              </div>
+
+              <div>
+                <h4 class="mb-1 text-xs font-bold text-amber-800">
+                  New feature with body
+                </h4>
+                <pre
+                  class="overflow-x-auto border border-amber-950 bg-amber-50 p-2 text-sm">{dedent`
+                    ^ Add automated data validation for user inputs
+
+                    Previously, user inputs underwent manual validation, leading to
+                    occasional errors and data inconsistencies. Users had to carefully
+                    review inputs before submission, which was time-consuming and prone to
+                    oversight.
+
+                    Now, the system checks inputs against predefined criteria in real-time,
+                    flagging discrepancies and providing error messages. This ensures data
+                    integrity and reduces errors, improving overall system reliability.
+                  `}</pre>
               </div>
 
               <div>
@@ -196,21 +207,10 @@ import Section from '../components/section.astro'
 
               <div>
                 <h4 class="mb-1 text-xs font-bold text-amber-800">
-                  New feature with body
+                  Non-consumer affecting change scoped change
                 </h4>
                 <pre
-                  class="overflow-x-auto border border-amber-950 bg-amber-50 p-2 text-sm">{dedent`
-                    ^ Add automated data validation for user inputs
-
-                      Previously, user inputs underwent manual validation, leading to
-                      occasional errors and data inconsistencies. Users had to carefully
-                      review inputs before submission, which was time-consuming and prone to
-                      oversight.
-
-                      Now, the system checks inputs against predefined criteria in real-time,
-                      flagging discrepancies and providing error messages. This ensures data
-                      integrity and reduces errors, improving overall system reliability.
-                  `}</pre>
+                  class="overflow-x-auto border border-amber-950 bg-amber-50 p-2 text-sm">acme-tool: Remove superfluous semicolons</pre>
               </div>
             </div>
           </Section>
