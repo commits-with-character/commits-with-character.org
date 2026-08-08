@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css'
+
 import dedent from 'dedent'
 
 import A from '../components/a.astro'
@@ -244,77 +246,81 @@ import Section from '../components/section.astro'
                   ></summary
                 >
                 <pre
-                  class="mt-4 overflow-x-auto border p-4 text-sm">{`plugins:
-  # Extracts commits starting with ~, ^, or !
-  - path: '@semantic-release/commit-analyzer'
-    parserOpts:
-      headerPattern: '^([!^~])(?: (.*):)? (.*)$'
-      headerCorrespondence:
-        - type
-        - scope
-        - subject
-    # The type can be a glob pattern so the characters need to be escaped.
-    releaseRules:
-      - release: patch
-        type: "\\\\~"
-      - release: minor
-        type: "\\\\^"
-      - release: major
-        type: "\\\\!"
+                  class="mt-4 overflow-x-auto border p-4 text-sm">{dedent`
+                    plugins:
+                      # Extracts commits starting with ~, ^, or !
+                      - path: '@semantic-release/commit-analyzer'
+                        parserOpts:
+                          headerPattern: '^([!^~])(?: (.*):)? (.*)$'
+                          headerCorrespondence:
+                            - type
+                            - scope
+                            - subject
+                        # The type can be a glob pattern so the characters need to be escaped.
+                        releaseRules:
+                          - release: patch
+                            type: "\\\\~"
+                          - release: minor
+                            type: "\\\\^"
+                          - release: major
+                            type: "\\\\!"
 
-  # Generates release notes using Major, Minor, and Patch sections.
-  - path: '@semantic-release/release-notes-generator'
-    parserOpts:
-      headerPattern: '^([!^~])(?: (.*):)? (.*)$'
-      headerCorrespondence:
-        - type
-        - scope
-        - subject
-    preset: conventionalcommits
-    presetConfig:
-      types:
-        - hidden: false
-          section: Major
-          type: '!'
-        - hidden: false
-          section: Minor
-          type: '^'
-        - hidden: false
-          section: Patch
-          type: '~'
+                      # Generates release notes using Major, Minor, and Patch sections.
+                      - path: '@semantic-release/release-notes-generator'
+                        parserOpts:
+                          headerPattern: '^([!^~])(?: (.*):)? (.*)$'
+                          headerCorrespondence:
+                            - type
+                            - scope
+                            - subject
+                        preset: conventionalcommits
+                        presetConfig:
+                          types:
+                            - hidden: false
+                              section: Major
+                              type: '!'
+                            - hidden: false
+                              section: Minor
+                              type: '^'
+                            - hidden: false
+                              section: Patch
+                              type: '~'
 
-  # Uses pnpm to bump and publish the release.
-  - path: '@semantic-release/exec'
-    prepareCmd: 'pnpm version \${nextRelease.version} --git-tag-version=false'
-    publishCmd: 'pnpm publish --no-git-checks'
+                      # Uses pnpm to bump and publish the release.
+                      - path: '@semantic-release/exec'
+                        prepareCmd: 'pnpm version \${nextRelease.version} --git-tag-version=false'
+                        publishCmd: 'pnpm publish --no-git-checks'
 
-  # Saves the release notes to GutHub's Releases page.
-  - '@semantic-release/github'
+                      # Saves the release notes to GutHub's Releases page.
+                      - '@semantic-release/github'
 
-  # Writes to the CHANGELOG.md file.
-  - path: '@semantic-release/changelog'
-    changelogFile: CHANGELOG.md
-    changelogTitle: '# Changelog'
+                      # Writes to the CHANGELOG.md file.
+                      - path: '@semantic-release/changelog'
+                        changelogFile: CHANGELOG.md
+                        changelogTitle: '# Changelog'
 
-  # Commits the changes with a "vX.Y.Z" message.
-  - path: '@semantic-release/git'
-    assets:
-      - CHANGELOG.md
-      - package.json
-    message: |
-      v\${nextRelease.version}
+                      # Commits the changes with a "vX.Y.Z" message.
+                      - path: '@semantic-release/git'
+                        assets:
+                          - CHANGELOG.md
+                          - package.json
+                        message: |
+                          v\${nextRelease.version}
 
-      [skip ci]`}</pre>
+                          [skip ci]
+                  `}</pre>
               </details>
 
               <details class="mt-4">
                 <summary class="cursor-pointer font-bold text-amber-800"> Release command </summary>
                 <pre
-                  class="mt-4 overflow-x-auto border p-4 text-sm">pnpx --package semantic-release@25 \
---package conventional-changelog-conventionalcommits@9 \
---package @semantic-release/changelog@7 \
---package @semantic-release/git@11 \
---package @semantic-release/exec@7 semantic-release</pre>
+                  class="mt-4 overflow-x-auto border p-4 text-sm">{dedent`
+                    pnpx --package semantic-release@25 \
+                    --package conventional-changelog-conventionalcommits@9 \
+                    --package @semantic-release/changelog@7 \
+                    --package @semantic-release/git@11 \
+                    --package @semantic-release/exec@7 semantic-release
+                  `}</pre>
               </details>
             </p>
           </div>
