@@ -22,9 +22,7 @@ import Section from '../components/section.astro'
   <body class="bg-amber-50 pb-16 pt-4 text-amber-950 sm:text-lg">
     <div class="border-y-8 border-amber-950 bg-white py-16">
       <img alt="" src="/logo.svg" class="mx-auto size-32" />
-      <h1
-        class="mt-8 px-4 text-center font-serif text-4xl font-bold tracking-tight sm:text-5xl"
-      >
+      <h1 class="mt-8 px-4 text-center font-serif text-4xl font-bold tracking-tight sm:text-5xl">
         Commits With Character
       </h1>
 
@@ -46,8 +44,8 @@ import Section from '../components/section.astro'
       <p
         class="mx-auto mt-4 w-full max-w-2xl shrink-0 text-balance px-4 text-center font-serif text-lg font-semibold text-amber-900"
       >
-        A simple convention for conveying semantic versioning to both humans and
-        automated systems via commit messages
+        A simple convention for conveying semantic versioning to both humans and automated systems
+        via commit messages
       </p>
     </div>
 
@@ -100,11 +98,7 @@ import Section from '../components/section.astro'
                   'Use the body to explain how it worked before, what has changed, and how it works now',
               },
             ].map((rule) => (
-              <Rule
-                title={rule.title}
-                description={rule.description}
-                icon={rule.icon}
-              />
+              <Rule title={rule.title} description={rule.description} icon={rule.icon} />
             ))
           }
         </Section>
@@ -116,8 +110,8 @@ import Section from '../components/section.astro'
               icon="exclamation"
             >
               <p>
-                Use a character prefix, followed by a space, to inform your
-                consumers about the intent of the work.
+                Use a character prefix, followed by a space, to inform your consumers about the
+                intent of the work.
               </p>
               <ul class="mt-4 space-y-4">
                 <li class="flex gap-4">
@@ -125,8 +119,9 @@ import Section from '../components/section.astro'
                     <Code>!</Code>
                   </div>
                   <div>
-                    An incompatible change has been made to your API; a breaking
-                    change (<A href="http://semver.org/#summary">MAJOR</A>).
+                    An incompatible change has been made to your API; a breaking change (<A
+                      href="http://semver.org/#summary">MAJOR</A
+                    >).
                   </div>
                 </li>
                 <li class="flex gap-4">
@@ -134,8 +129,9 @@ import Section from '../components/section.astro'
                     <Code>^</Code>
                   </div>
                   <div>
-                    Backward compatible functionality added to your API; a new
-                    feature (<A href="http://semver.org/#summary">MINOR</A>).
+                    Backward compatible functionality added to your API; a new feature (<A
+                      href="http://semver.org/#summary">MINOR</A
+                    >).
                   </div>
                 </li>
                 <li class="flex gap-4">
@@ -143,10 +139,9 @@ import Section from '../components/section.astro'
                     <Code>~</Code>
                   </div>
                   <div>
-                    Backward compatible bug fix made to your API, or a code
-                    change that improves performance; any non-feature that
-                    requires a release (<A href="http://semver.org/#summary"
-                      >PATCH</A
+                    Backward compatible bug fix made to your API, or a code change that improves
+                    performance; any non-feature that requires a release (<A
+                      href="http://semver.org/#summary">PATCH</A
                     >).
                   </div>
                 </li>
@@ -163,25 +158,19 @@ import Section from '../components/section.astro'
           <Section title="Examples">
             <div class="space-y-4">
               <div>
-                <h4 class="mb-1 text-xs font-bold text-amber-800">
-                  Non-feature improvement
-                </h4>
+                <h4 class="mb-1 text-xs font-bold text-amber-800">Non-feature improvement</h4>
                 <pre
                   class="overflow-x-auto border border-amber-950 bg-amber-50 p-2 text-sm">~ Fix typo in response from parser</pre>
               </div>
 
               <div>
-                <h4 class="mb-1 text-xs font-bold text-amber-800">
-                  Scoped breaking change
-                </h4>
+                <h4 class="mb-1 text-xs font-bold text-amber-800">Scoped breaking change</h4>
                 <pre
                   class="overflow-x-auto border border-amber-950 bg-amber-50 p-2 text-sm">! faux-util: Delete deprecated options</pre>
               </div>
 
               <div>
-                <h4 class="mb-1 text-xs font-bold text-amber-800">
-                  New feature with body
-                </h4>
+                <h4 class="mb-1 text-xs font-bold text-amber-800">New feature with body</h4>
                 <pre
                   class="overflow-x-auto border border-amber-950 bg-amber-50 p-2 text-sm">{dedent`
                     ^ Add automated data validation for user inputs
@@ -198,9 +187,7 @@ import Section from '../components/section.astro'
               </div>
 
               <div>
-                <h4 class="mb-1 text-xs font-bold text-amber-800">
-                  Non-consumer affecting change
-                </h4>
+                <h4 class="mb-1 text-xs font-bold text-amber-800">Non-consumer affecting change</h4>
                 <pre
                   class="overflow-x-auto border border-amber-950 bg-amber-50 p-2 text-sm">Fix 404 credit links in CONTRIBUTING</pre>
               </div>
@@ -221,59 +208,125 @@ import Section from '../components/section.astro'
         <Section title="About">
           <div class="space-y-4">
             <p>
-              The <strong>Commits With Character</strong> specification draws inspiration
-              from <A href="https://www.conventionalcommits.org"
-                >Conventional Commits</A
-              >, in that it also serves the purpose of adding semantic
-              significance to a commit message. However, it distinguishes itself
-              by endorsing and expanding upon the commit guidelines outlined in
-              the original <A
+              The <strong>Commits With Character</strong> specification draws inspiration from <A
+                href="https://www.conventionalcommits.org">Conventional Commits</A
+              >, in that it also serves the purpose of adding semantic significance to a commit
+              message. However, it distinguishes itself by endorsing and expanding upon the commit
+              guidelines outlined in the original <A
                 href="https://www.git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines"
                 >Git Book</A
               >, thereby steering clear of commit categorisation.
             </p>
             <p>
-              If you know <A href="https://semver.org/">Semantic Versioning</A>,
-              you know Commits With Character.
+              If you know <A href="https://semver.org/">Semantic Versioning</A>, you know Commits
+              With Character.
             </p>
             <p>
-              This simple addition is for projects that do not need the full
-              power of <A href="https://github.com/changesets/changesets"
-                >Changesets</A
-              > (which is highly recommended for complex team projects), are happy
-              to drive a changelog and release from commit messages, but would rather
-              not have the overhead of Conventional Commits.
+              This simple addition is for projects that do not need the full power of <A
+                href="https://github.com/changesets/changesets">Changesets</A
+              > (which is highly recommended for complex team projects), are happy to drive a changelog
+              and release from commit messages, but would rather not have the overhead of Conventional
+              Commits.
             </p>
           </div>
+
           <div>
-            <h3 class="text-xl font-bold">Tools</h3>
-            <ul class="ml-6 mt-4 list-outside list-disc">
-              <li>
-                <div>
-                  <A
-                    href="https://github.com/commits-with-character/conventional-changelog-preset"
-                    >@commits-with-character/conventional-changelog-preset</A
-                  >
-                </div><div class="text-base opacity-80">
-                  An adapter you can use with tools such as release-it's <A
-                    href="https://github.com/release-it/conventional-changelog"
-                    >Conventional Changelog plugin</A
-                  > to provide the recommended bump to <A
-                    href="https://github.com/release-it/release-it"
-                    >release-it</A
-                  >, and update the changelog file.
-                </div>
-              </li>
-            </ul>
+            <h3 class="text-xl font-bold">Automation</h3>
+            <p class="mt-4">
+              The <A href="https://semantic-release.org/"
+                >Semantic Release<A /> tool can be easily configured to use <strong
+                  >Commits with Character</strong
+                >. Here's an example configuration file:
+              </A>
+              <details class="mt-4">
+                <summary
+                  ><code class="cursor-pointer font-bold text-amber-800">.releaserc.yaml</code
+                  ></summary
+                >
+                <pre
+                  class="mt-4 overflow-x-auto border p-4 text-sm">{`plugins:
+  # Extracts commits starting with ~, ^, or !
+  - path: '@semantic-release/commit-analyzer'
+    parserOpts:
+      headerPattern: '^([!^~])(?: (.*):)? (.*)$'
+      headerCorrespondence:
+        - type
+        - scope
+        - subject
+    # The type can be a glob pattern so the characters need to be escaped.
+    releaseRules:
+      - release: patch
+        type: "\\\\~"
+      - release: minor
+        type: "\\\\^"
+      - release: major
+        type: "\\\\!"
+
+  # Generates release notes using Major, Minor, and Patch sections.
+  - path: '@semantic-release/release-notes-generator'
+    parserOpts:
+      headerPattern: '^([!^~])(?: (.*):)? (.*)$'
+      headerCorrespondence:
+        - type
+        - scope
+        - subject
+    preset: conventionalcommits
+    presetConfig:
+      types:
+        - hidden: false
+          section: Major
+          type: '!'
+        - hidden: false
+          section: Minor
+          type: '^'
+        - hidden: false
+          section: Patch
+          type: '~'
+
+  # Uses pnpm to bump and publish the release.
+  - path: '@semantic-release/exec'
+    prepareCmd: 'pnpm version \${nextRelease.version} --git-tag-version=false'
+    publishCmd: 'pnpm publish --no-git-checks'
+
+  # Saves the release notes to GutHub's Releases page.
+  - '@semantic-release/github'
+
+  # Writes to the CHANGELOG.md file.
+  - path: '@semantic-release/changelog'
+    changelogFile: CHANGELOG.md
+    changelogTitle: '# Changelog'
+
+  # Commits the changes with a "vX.Y.Z" message.
+  - path: '@semantic-release/git'
+    assets:
+      - CHANGELOG.md
+      - package.json
+    message: |
+      v\${nextRelease.version}
+
+      [skip ci]`}</pre>
+              </details>
+
+              <details class="mt-4">
+                <summary class="cursor-pointer font-bold text-amber-800"> Release command </summary>
+                <pre
+                  class="mt-4 overflow-x-auto border p-4 text-sm">pnpx --package semantic-release@25 \
+--package conventional-changelog-conventionalcommits@9 \
+--package @semantic-release/changelog@7 \
+--package @semantic-release/git@11 \
+--package @semantic-release/exec@7 semantic-release</pre>
+              </details>
+            </p>
           </div>
+
           <div>
             <h3 class="text-xl font-bold">
               "But I love Conventional Commits <em>and</em> Commits With Character!"
             </h3>
             <p class="mt-4">
-              Whilst it is not recommended, if you really feel the need to
-              categorise every commit with a prefix, here's some suggestions you
-              can use for all non-consumer affecting commits.
+              Whilst it is not recommended, if you really feel the need to categorise every commit
+              with a prefix, here's some suggestions you can use for all non-consumer affecting
+              commits.
             </p>
             <table class="mt-4">
               <thead class="border-b border-amber-950">
@@ -286,17 +339,14 @@ import Section from '../components/section.astro'
                 <tr>
                   <td class="p-4"><Code>=</Code></td>
                   <td class="p-4"
-                    >A source code change that doesn’t fix a bug, doesn’t add a
-                    feature, doesn’t change performance, or doesn't change the
-                    meaning of the code (comments, white-space, formatting,
-                    missing semi-colons, etc).</td
+                    >A source code change that doesn’t fix a bug, doesn’t add a feature, doesn’t
+                    change performance, or doesn't change the meaning of the code (comments,
+                    white-space, formatting, missing semi-colons, etc).</td
                   >
                 </tr>
                 <tr>
                   <td class="p-4"><Code>?</Code></td>
-                  <td class="p-4"
-                    >Add missing tests or correct existing tests.</td
-                  >
+                  <td class="p-4">Add missing tests or correct existing tests.</td>
                 </tr>
                 <tr>
                   <td class="p-4"><Code>%</Code></td>
@@ -305,10 +355,9 @@ import Section from '../components/section.astro'
                 <tr>
                   <td class="p-4"><Code>$</Code></td>
                   <td class="p-4"
-                    >Changes that affect the build system or external
-                    dependencies (development dependencies), or changes to CI
-                    configuration files and scripts. Can be used for general
-                    project maintenance tasks.</td
+                    >Changes that affect the build system or external dependencies (development
+                    dependencies), or changes to CI configuration files and scripts. Can be used for
+                    general project maintenance tasks.</td
                   >
                 </tr>
                 <tr>
@@ -326,9 +375,7 @@ import Section from '../components/section.astro'
       </div>
 
       <div class="mt-8 text-center">
-        <A href="https://github.com/commits-with-character"
-          >github.com/commits-with-character</A
-        >
+        <A href="https://github.com/commits-with-character">github.com/commits-with-character</A>
       </div>
     </div>
   </body>
